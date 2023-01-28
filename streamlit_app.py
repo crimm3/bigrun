@@ -8,7 +8,7 @@ mean = 88
 stdev = 29.75
 if st.button('計算'):
   your_percent = norm.cdf(int(kinikura), loc=mean, scale=stdev)
-  if 1 - your_percent >= 0.05:
+  if 1 - your_percent <= 0.05:
     st.write(
             '<span style="color:red;background:pink">あなたは上位:{} %</span>'.format(round((1 - your_percent) * 100, 2)),
               unsafe_allow_html=True)

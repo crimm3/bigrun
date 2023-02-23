@@ -8,7 +8,7 @@ mean = 88
 stdev = 29.75
 if st.button('計算'):
   your_percent = norm.cdf(int(kinikura), loc=mean, scale=stdev)
-  with open('kinikura.csv', mode='a') as f:
+  with open('kinikura.txt', mode='a') as f:
     f.write(str(kinikura) + '\n')
   if 1 - your_percent <= 0.05:
     st.write(

@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 from scipy.stats import norm
+import logging
 
 st.title('ビッグラン上位パーセント')
 kinikura = st.text_input('金イクラの数を入力してください')
@@ -8,7 +9,8 @@ mean = 88
 stdev = 29.75
 if st.button('計算'):
   your_percent = norm.cdf(int(kinikura), loc=mean, scale=stdev)
-  print(str(kinikura))
+  
+  logging.info(str(kinikura))
   if 1 - your_percent <= 0.05:
     st.write(
             '<span style="color:red;background:pink">あなたは上位:{} %</span>'.format(round((1 - your_percent) * 100, 2)),
